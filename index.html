@@ -62,7 +62,28 @@ $(document).ready(function() {
     /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("resultType").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+ /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("lang").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -139,11 +160,21 @@ window.onclick = function(event) {
 <h1> Beyonce Tweets </h1>
   
   <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
+  <button onclick="myFunction()" class="dropbtn">Result Type</button>
+  <div id="resultType" class="dropdown-content">
+        <a href="#">Any</a>
     <a href="#">Recent</a>
     <a href="#">Popular</a>
     <a href="#">Mixed</a>
+  </div>
+</div>
+  
+  <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Result Type</button>
+  <div id="lang" class="dropdown-content">
+    <a href="#">Any</a>
+    <a href="#">English</a>
+    <a href="#">Spanish</a>
   </div>
 </div>
 
