@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title> Beyonce Tweets </title>
+
+<script type="text/javascript" src="codebird.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://gsa.pagesfound.com/js/codebird.js"></script>
+
+<script type="text/javascript">
+var cb = new Codebird;
+cb.setConsumerKey("sOCBp4ukTXA2afHSfLZ9PaYcb", "SI5zXeG6EXaRr1XIImLAy0Nc5vScxZWgyKOfRh2ySNpGbfa551");
+</script>
+
+<script>
+/* Uses the twitter rest API to grab tweet JSON data */
+
+//jQuery code. Run only when the DOM is fully loaded. 
+$(document).ready(function() {
+
+  var cb = new Codebird;
+  cb.setConsumerKey("sOCBp4ukTXA2afHSfLZ9PaYcb", "SI5zXeG6EXaRr1XIImLAy0Nc5vScxZWgyKOfRh2ySNpGbfa551");
+  cb.setToken("117949024-CgOd4u3iLdHU55b1i8J0Zo1pvbYria60R8OgN0Yr
+", "rDoXHTsHJd8oBpDMHIpsbrsbPvWu30fg9b125RHffjKrF");
+
+  $('#go').click(function(){
+    twitterSearch();
+  });
+  
+  function twitterSearch(){
+    cb.__call(
+      "search_tweets", {
+        q: "\"I feel\"", //
+        geocode: "55.864237,-4.251806,5mi", //within 5 miles of Glasgow centre
+        result_type: "recent",
+        count: "100"
+      },
+      function(reply, rate, err) {
+
+        var statuses = reply.statuses;
+        for (var i = 0; i < statuses.length; i++) {
+          $('#results').append('<div>' + statuses[i].text + '</div>');
+        }
+
+        $('#remaining').html('<p>Remaining API calls: ' + rate.remaining + '</p>');
+
+        //show results in console for debugging
+        console.log(reply);
+        console.log(rate);
+        console.log(err);
+      }
+    );
+    
+  }
+
+});
+</script>
+
+</head>
+
+<body>
+
+<h1> Beyonce Tweets </h1>
+
+<button id="go">Fetch!</button>
+<div id="results"></div>
+<div id="remaining"></div>
+
+</body>
+
+</html>
