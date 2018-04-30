@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: white;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -116,13 +116,24 @@ $(document).ready(function() {
 }
     #go {
     background-color: #FFD400;
-    color: black;
+    color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
      position: relative;
     display: inline-block;
     }
+    
+    #result{
+    background-color: #D90368;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    display: block;
+    }
+    
   </style>
   
 </head>
@@ -136,18 +147,18 @@ $(document).ready(function() {
   <div class="dropdown">
   <button class="dropbtn">Result Type</button>
   <div class="dropdown-content">
-    <a href="#">Any</a>
-    <a href="#">Recent</a>
-    <a href="#">Popular</a>
+    <a href="#" value="en">Any</a>
+    <a href="#" value="recent">Recent</a>
+    <a href="#" value="popular">Popular</a>
   </div>
 </div>
   
     <div class="dropdown">
   <button class="dropbtn">Language</button>
   <div class="dropdown-content">
-    <a href="#">Any</a>
-    <a href="#">English</a>
-    <a href="#">Spanish</a>
+    <a href="#" value="any">Any</a>
+    <a href="#" value="en">English</a>
+    <a href="#" value="es">Spanish</a>
   </div>
 </div>
 
