@@ -29,12 +29,13 @@ $(document).ready(function() {
     twitterSearch();
   });
   
+  
   function twitterSearch(){
     cb.__call(
       "search_tweets", {
-        q: "beyonce", //
+        q: "beyonce",
         result_type: "recent",
-        lang: "es",
+        lang: "en",
         count: "100"
       },
       function(reply, rate, err) {
@@ -124,15 +125,7 @@ $(document).ready(function() {
     display: inline-block;
     }
     
-    #results{
-    background-color: #D90368;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    position: relative;
-    display: block;
-    }
+ 
     
   </style>
   
@@ -155,10 +148,10 @@ $(document).ready(function() {
   
     <div class="dropdown">
   <button class="dropbtn">Language</button>
-  <div class="dropdown-content">
-    <a href="#" value="any">Any</a>
-    <a href="#" value="en">English</a>
-    <a href="#" value="es">Spanish</a>
+  <div class="dropdown-content" id="lang>
+    <a href="#" value="any" id="any">Any</a>
+    <a href="#" value="en" id="en">English</a>
+    <a href="#" value="es" id="es">Spanish</a>
   </div>
 </div>
 
